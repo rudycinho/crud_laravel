@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Client;
 use App\Http\Controllers\BaseController;
-use Illuminate\Http\Request;
+use App\Http\Requests\Client\StoreRequest;
+use App\Http\Requests\Client\UpdateRequest;
 
 class ClientController extends BaseController
 {
@@ -15,7 +16,7 @@ class ClientController extends BaseController
         return $this->sendResponse($clients,"LIST OF CLIENTS SUCCESSFULLY RETRIEVED");
     }
 
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
         $client = Client::create($request->all());
         return $this->sendResponse($client,"CREATED CLIENT");
@@ -26,7 +27,7 @@ class ClientController extends BaseController
         return $this->sendResponse($client,"RETRIEVED CLIENT");
     }
 
-    public function update(Request $request, Client $client)
+    public function update(UpdateRequest $request, Client $client)
     {
         $client->update($request->all());
         return $this->sendResponse($client,"UPDATED CLIENTE");
