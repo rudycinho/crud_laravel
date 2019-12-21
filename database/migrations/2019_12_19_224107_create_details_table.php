@@ -16,11 +16,17 @@ class CreateDetailsTable extends Migration
         Schema::create('details', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('quantity');
-            $table->integer('price');
+            $table->double('price',8,2);
             $table->unsignedBigInteger('product_id');
             $table->unsignedBigInteger('invoice_id');
-            $table->foreign('product_id')->references('id')->on('products');
-            $table->foreign('invoice_id')->references('id')->on('invoices');
+            $table->foreign('product_id')
+                  ->references('id')
+                  ->on('products')
+                  ->onDelete('cascade');
+            $table->foreign('invoice_id')
+                  ->references('id')
+                  ->on('invoices')
+                  ->onDelete('cascade');
             $table->timestamps();
         });
     }
