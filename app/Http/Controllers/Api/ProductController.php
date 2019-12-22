@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
-use App\Models\Detail;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
-class DetailController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class DetailController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Detail  $detail
+     * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Detail $detail)
+    public function show(Product $product)
     {
         //
     }
@@ -52,10 +52,10 @@ class DetailController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Detail  $detail
+     * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Detail $detail)
+    public function edit(Product $product)
     {
         //
     }
@@ -64,10 +64,10 @@ class DetailController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Detail  $detail
+     * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Detail $detail)
+    public function update(Request $request, Product $product)
     {
         //
     }
@@ -75,10 +75,10 @@ class DetailController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Detail  $detail
+     * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Detail $detail)
+    public function destroy(Product $product)
     {
         //
     }
