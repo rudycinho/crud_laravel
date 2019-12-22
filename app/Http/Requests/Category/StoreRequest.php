@@ -29,7 +29,7 @@ class StoreRequest extends FormRequest
     {
         return [
             'name'        => 'required|string|regex:/^[a-zA-Z ]+$/u|min:5|max:255|unique:categories,name',
-            'description' => 'string|regex:/^[a-zA-Z0-9 ]+$/u|min:5|max:400'
+            'description' => 'string|min:5|max:400'
         ];
     }
 

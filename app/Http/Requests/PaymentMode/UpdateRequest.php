@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Category;
+namespace App\Http\Requests\PaymentMode;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
@@ -27,10 +27,10 @@ class UpdateRequest extends FormRequest
      */
     public function rules()
     {
-        $category = $this->category;
+        $paymentMode = $this->paymentMode;
         return [
-            'name'        => "required|string|regex:/^[a-zA-Z ]+$/u|min:5|max:255|unique:categories,name,$category->id,id",
-            'description' => "string|min:5|max:400"
+            'name'            => "required|string|regex:/^[a-zA-Z ]+$/u|min:5|max:255|unique:payment_modes,name,$paymentMode->id,id",
+            'another_details' => 'string|min:5|max:400'
         ];
     }
 

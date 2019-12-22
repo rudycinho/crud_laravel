@@ -3,83 +3,38 @@
 namespace App\Http\Controllers;
 
 use App\Models\PaymentMode;
-use Illuminate\Http\Request;
+use App\Http\Controllers\BaseController;
+use App\Http\Requests\PaymentMode\StoreRequest;
+use App\Http\Requests\PaymentMode\UpdateRequest;
 
-class PaymentModeController extends Controller
+class PaymentModeController extends BaseController
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $paymentModes = PaymentMode::all();
+        return $this->sendResponse($paymentModes,"LIST OF PAYMENT METHODS SUCCESSFULLY RETRIEVED",200);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function store(StoreRequest $request)
     {
-        //
+        $paymentMode = PaymentMode::create($request->all());
+        return $this->sendResponse($paymentMode,"CREATED PAYMENT METHODS",201);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\PaymentMode  $paymentMode
-     * @return \Illuminate\Http\Response
-     */
     public function show(PaymentMode $paymentMode)
     {
-        //
+        return $this->sendResponse($paymentMode,"RETRIEVED PAYMENT METHODS",200);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\PaymentMode  $paymentMode
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(PaymentMode $paymentMode)
+    public function update(UpdateRequest $request, PaymentMode $paymentMode)
     {
-        //
+        $paymentMode->update($request->all());
+        return $this->sendResponse($paymentMode,"UPDATED PAYMENT METHODS",201);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\PaymentMode  $paymentMode
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, PaymentMode $paymentMode)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\PaymentMode  $paymentMode
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(PaymentMode $paymentMode)
     {
-        //
+        $paymentMode->delete();
+        return $this->sendResponse($paymentMode,"DELETED PAYMENT METHODS",200);
     }
 }
