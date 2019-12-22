@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use App\Models\Client;
 use App\Http\Controllers\BaseController;
-use App\Http\Requests\Client\StoreRequest;
-use App\Http\Requests\Client\UpdateRequest;
+use App\Http\Requests\ClientRequest;
 
 class ClientController extends BaseController
 {
@@ -16,7 +15,7 @@ class ClientController extends BaseController
         return $this->sendResponse($clients,"LIST OF CLIENTS SUCCESSFULLY RETRIEVED",200);
     }
 
-    public function store(StoreRequest $request)
+    public function store(ClientRequest $request)
     {
 
         $client = Client::create($request->all());
@@ -32,7 +31,7 @@ class ClientController extends BaseController
         //}
     }
 
-    public function update(UpdateRequest $request, Client $client)
+    public function update(ClientRequest $request, Client $client)
     {
         $client->update($request->all());
         return $this->sendResponse($client,"UPDATED CLIENTE",201);

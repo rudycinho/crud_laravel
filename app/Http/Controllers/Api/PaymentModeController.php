@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use App\Models\PaymentMode;
 use App\Http\Controllers\BaseController;
-use App\Http\Requests\PaymentMode\StoreRequest;
-use App\Http\Requests\PaymentMode\UpdateRequest;
+use App\Http\Requests\PaymentModeRequest;
 
 class PaymentModeController extends BaseController
 {
@@ -15,7 +14,7 @@ class PaymentModeController extends BaseController
         return $this->sendResponse($paymentModes,"LIST OF PAYMENT METHODS SUCCESSFULLY RETRIEVED",200);
     }
 
-    public function store(StoreRequest $request)
+    public function store(PaymentModeRequest $request)
     {
         $paymentMode = PaymentMode::create($request->all());
         return $this->sendResponse($paymentMode,"CREATED PAYMENT METHODS",201);
@@ -26,7 +25,7 @@ class PaymentModeController extends BaseController
         return $this->sendResponse($paymentMode,"RETRIEVED PAYMENT METHODS",200);
     }
 
-    public function update(UpdateRequest $request, PaymentMode $paymentMode)
+    public function update(PaymentModeRequest $request, PaymentMode $paymentMode)
     {
         $paymentMode->update($request->all());
         return $this->sendResponse($paymentMode,"UPDATED PAYMENT METHODS",201);
