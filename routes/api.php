@@ -22,3 +22,9 @@ Route::get('clients/{client}'   ,'ClientController@show');
 Route::post('clients'           ,'ClientController@store');
 Route::put('clients/{client}'   ,'ClientController@update');
 Route::delete('clients/{client}','ClientController@destroy');
+
+Route::get('categories'              ,'CategoryController@index');
+Route::get('categories/{category}'   ,'CategoryController@show');
+Route::post('categories'             ,'CategoryController@store');
+Route::put('categories/{category}'   ,'CategoryController@update');
+Route::delete('categories/{category}','CategoryController@destroy');
