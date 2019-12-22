@@ -28,3 +28,9 @@ Route::get('categories/{category}'   ,'CategoryController@show');
 Route::post('categories'             ,'CategoryController@store');
 Route::put('categories/{category}'   ,'CategoryController@update');
 Route::delete('categories/{category}','CategoryController@destroy');
+
+Route::get('payment_modes'                 ,'PaymentModeController@index');
+Route::get('payment_modes/{paymentMode}'   ,'PaymentModeController@show');
+Route::post('payment_modes'                ,'PaymentModeController@store');
+Route::put('payment_modes/{paymentMode}'   ,'PaymentModeController@update');
+Route::delete('payment_modes/{paymentMode}','PaymentModeController@destroy');
