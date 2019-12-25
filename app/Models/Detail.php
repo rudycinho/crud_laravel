@@ -11,7 +11,9 @@ class Detail extends Model
     protected $fillable = [
         'id',
         'quantity',
-        'price'
+        'price',
+        'product_id',
+        'invoice_id'
     ];
 
     protected $hidden= [
