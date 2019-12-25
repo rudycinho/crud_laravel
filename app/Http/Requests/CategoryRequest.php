@@ -18,7 +18,7 @@ class CategoryRequest extends BaseRequest
             case 'POST':
             {
                 return [
-                    'name'        => 'required|string|regex:/^[a-zA-Z ]+$/u|min:5|max:255|unique:categories,name',
+                    'name'        => 'required|string|regex:/^[a-zA-Z ]+$/u|min:3|max:255|unique:categories,name',
                     'description' => 'string|min:5|max:400'
                 ];
             }
@@ -26,7 +26,7 @@ class CategoryRequest extends BaseRequest
             {
                 $category = $this->category;
                 return [
-                    'name'        => "required|string|regex:/^[a-zA-Z ]+$/u|min:5|max:255|unique:categories,name,$category->id,id",
+                    'name'        => "required|string|regex:/^[a-zA-Z ]+$/u|min:3|max:255|unique:categories,name,$category->id,id",
                     'description' => "string|min:5|max:400"
                 ];
             }
