@@ -46,3 +46,9 @@ Route::get('invoices/{invoice}'   ,'Api\InvoiceController@show');
 Route::post('invoices'            ,'Api\InvoiceController@store');
 Route::put('invoices/{invoice}'   ,'Api\InvoiceController@update');
 Route::delete('invoices/{invoice}','Api\InvoiceController@destroy');
+
+Route::get('details'            ,'Api\DetailController@index');
+Route::get('details/{detail}'   ,'Api\DetailController@show');
+Route::post('details'           ,'Api\DetailController@store');
+Route::put('details/{detail}'   ,'Api\DetailController@update');
+Route::delete('details/{detail}','Api\DetailController@destroy');

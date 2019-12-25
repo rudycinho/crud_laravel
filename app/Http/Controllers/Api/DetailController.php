@@ -3,83 +3,37 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\Detail;
-use Illuminate\Http\Request;
+use App\Http\Controllers\BaseController;
+use App\Http\Requests\DetailRequest;
 
-class DetailController extends Controller
+class DetailController extends BaseController
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $details = Detail::all();
+        return $this->sendResponse($details,"LIST OF DETAILS SUCCESSFULLY RETRIEVED",200);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function store(DetailRequest $request)
     {
-        //
+        $detail = Detail::create($request->all());
+        return $this->sendResponse($detail,"CREATED DETAILS",201);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Detail  $detail
-     * @return \Illuminate\Http\Response
-     */
     public function show(Detail $detail)
     {
-        //
+        return $this->sendResponse($detail,"RETRIEVED DETAIL",200);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Detail  $detail
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Detail $detail)
+    public function update(DetailRequest $request, Detail $detail)
     {
-        //
+        $detail->update($request->all());
+        return $this->sendResponse($detail,"UPDATED DETAIL",201);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Detail  $detail
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Detail $detail)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Detail  $detail
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Detail $detail)
     {
-        //
+        $detail->delete();
+        return $this->sendResponse($detail,"DELETED DETAIL",200);
     }
 }
