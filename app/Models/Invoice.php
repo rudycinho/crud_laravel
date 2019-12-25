@@ -10,7 +10,9 @@ class Invoice extends Model
 
     protected $fillable = [
         'id',
-        'date'
+        'date',
+        'client_id',
+        'payment_mode_id'
     ];
 
     protected $hidden= [

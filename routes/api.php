@@ -40,3 +40,9 @@ Route::get('products/{product}'   ,'Api\ProductController@show');
 Route::post('products'            ,'Api\ProductController@store');
 Route::put('products/{product}'   ,'Api\ProductController@update');
 Route::delete('products/{product}','Api\ProductController@destroy');
+
+Route::get('invoices'             ,'Api\InvoiceController@index');
+Route::get('invoices/{invoice}'   ,'Api\InvoiceController@show');
+Route::post('invoices'            ,'Api\InvoiceController@store');
+Route::put('invoices/{invoice}'   ,'Api\InvoiceController@update');
+Route::delete('invoices/{invoice}','Api\InvoiceController@destroy');
