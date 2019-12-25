@@ -18,8 +18,8 @@ class ClientRequest extends BaseRequest
             case 'POST':
             {
                 return [
-                    'name'      => 'required|string|regex:/^[a-zA-Z ]+$/u|min:5|max:255',
-                    'last_name' => 'required|string|regex:/^[a-zA-Z ]+$/u|min:5|max:255',
+                    'name'      => 'required|string|regex:/^[a-zA-Z ]+$/u|min:3|max:255',
+                    'last_name' => 'required|string|regex:/^[a-zA-Z ]+$/u|min:3|max:255',
                     'address'   => 'required|string|regex:/^[a-zA-Z0-9 ]+$/u|max:255',
                     'birth_date'=> 'required|date||date_format:Y-m-d',
                     'phone'     => 'string|regex:/^[0-9]+$/u|min:7',
@@ -30,8 +30,8 @@ class ClientRequest extends BaseRequest
             {
                 $client = $this->client;
                 return [
-                    'name'      => 'required|string|regex:/^[a-zA-Z ]+$/u|min:5|max:255',
-                    'last_name' => 'required|string|regex:/^[a-zA-Z ]+$/u|min:5|max:255',
+                    'name'      => 'required|string|regex:/^[a-zA-Z ]+$/u|min:3|max:255',
+                    'last_name' => 'required|string|regex:/^[a-zA-Z ]+$/u|min:3|max:255',
                     'address'   => 'required|string|regex:/^[a-zA-Z0-9 ]+$/u|max:255',
                     'birth_date'=> 'required|date||date_format:Y-m-d',
                     'phone'     => 'string|regex:/^[0-9]+$/u|min:7',

@@ -34,3 +34,9 @@ Route::get('payment_modes/{paymentMode}'   ,'Api\PaymentModeController@show');
 Route::post('payment_modes'                ,'Api\PaymentModeController@store');
 Route::put('payment_modes/{paymentMode}'   ,'Api\PaymentModeController@update');
 Route::delete('payment_modes/{paymentMode}','Api\PaymentModeController@destroy');
+
+Route::get('products'             ,'Api\ProductController@index');
+Route::get('products/{product}'   ,'Api\ProductController@show');
+Route::post('products'            ,'Api\ProductController@store');
+Route::put('products/{product}'   ,'Api\ProductController@update');
+Route::delete('products/{product}','Api\ProductController@destroy');
