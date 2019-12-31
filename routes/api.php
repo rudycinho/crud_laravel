@@ -52,3 +52,10 @@ Route::get('details/{detail}'   ,'Api\DetailController@show');
 Route::post('details'           ,'Api\DetailController@store');
 Route::put('details/{detail}'   ,'Api\DetailController@update');
 Route::delete('details/{detail}','Api\DetailController@destroy');
+
+Route::post('auth/register','Api\UserController@register');
+Route::post('auth/login','Api\UserController@login');
+
+Route::group(['middleware'=>'auth:api'],function(){
+    Route::get('auth/me','Api\UserController@me');
+});
